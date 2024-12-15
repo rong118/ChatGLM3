@@ -28,7 +28,7 @@ st.set_page_config(
     layout="wide"
 )
 
-MODEL_PATH = os.environ.get('MODEL_PATH', 'THUDM/chatglm3-6b')
+MODEL_PATH = os.environ.get('MODEL_PATH', '/Users/rongli/Desktop/venv_chatGLM3/ChatGLM3/model/chatglm3-6b')
 
 @st.cache_resource
 def get_model():

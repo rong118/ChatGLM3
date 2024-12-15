@@ -2,11 +2,11 @@ import os
 from typing import Optional, Union
 from transformers import AutoModel, AutoTokenizer, LogitsProcessorList
 
-MODEL_PATH = os.environ.get('MODEL_PATH', 'THUDM/chatglm3-6b')
+MODEL_PATH = os.environ.get('MODEL_PATH', '/Users/rongli/Desktop/venv_chatGLM3/ChatGLM3/model/chatglm3-6b')
 TOKENIZER_PATH = os.environ.get("TOKENIZER_PATH", MODEL_PATH)
 
 tokenizer = AutoTokenizer.from_pretrained(TOKENIZER_PATH, trust_remote_code=True)
-model = AutoModel.from_pretrained(MODEL_PATH, trust_remote_code=True, device_map="auto").eval()
+model = AutoModel.from_pretrained(MODEL_PATH, trust_remote_code=True, device_map="mps").eval()
 
 def batch(
         model,

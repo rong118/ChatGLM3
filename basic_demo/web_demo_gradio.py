@@ -38,7 +38,7 @@ from transformers import (
 ModelType = Union[PreTrainedModel, PeftModelForCausalLM]
 TokenizerType = Union[PreTrainedTokenizer, PreTrainedTokenizerFast]
 
-MODEL_PATH = os.environ.get('MODEL_PATH', 'THUDM/chatglm3-6b')
+MODEL_PATH = os.environ.get('MODEL_PATH', '/Users/rongli/Desktop/venv_chatGLM3/ChatGLM3/model/chatglm3-6b')
 TOKENIZER_PATH = os.environ.get("TOKENIZER_PATH", MODEL_PATH)
 
 
@@ -52,12 +52,12 @@ def load_model_and_tokenizer(
     model_dir = _resolve_path(model_dir)
     if (model_dir / 'adapter_config.json').exists():
         model = AutoPeftModelForCausalLM.from_pretrained(
-            model_dir, trust_remote_code=trust_remote_code, device_map='auto'
+            model_dir, trust_remote_code=trust_remote_code, device_map="mps"
         )
         tokenizer_dir = model.peft_config['default'].base_model_name_or_path
     else:
         model = AutoModelForCausalLM.from_pretrained(
-            model_dir, trust_remote_code=trust_remote_code, device_map='auto'
+            model_dir, trust_remote_code=trust_remote_code, device_map="mps"
         )
         tokenizer_dir = model_dir
     tokenizer = AutoTokenizer.from_pretrained(

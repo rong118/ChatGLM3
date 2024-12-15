@@ -60,7 +60,7 @@ from tools.Calculator import Calculator
 from tools.Weather import Weather
 from tools.DistanceConversion import DistanceConverter
 
-MODEL_PATH = os.environ.get('MODEL_PATH', 'THUDM/chatglm3-6b')
+MODEL_PATH = os.environ.get('MODEL_PATH', '/Users/rongli/Desktop/venv_chatGLM3/ChatGLM3/model/chatglm3-6b')
 
 if __name__ == "__main__":
     llm = ChatGLM3()
